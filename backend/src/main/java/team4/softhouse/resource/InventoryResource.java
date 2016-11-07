@@ -3,6 +3,7 @@ package team4.softhouse.resource;
 import team4.softhouse.db.entity.Inventory;
 import team4.softhouse.process.InventoryProcess;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
@@ -13,7 +14,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 //import team4.softhouse.process.NoteProcess;
 
-
+@RolesAllowed("ADMIN")
 @Path("/product")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
