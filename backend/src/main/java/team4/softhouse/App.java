@@ -9,9 +9,12 @@ import io.dropwizard.setup.Environment;
 import org.h2.tools.Server;
 import org.skife.jdbi.v2.DBI;
 import team4.softhouse.db.InventoryDAO;
+import team4.softhouse.process.InventoryProcess;
+import team4.softhouse.process.InventoryProcessDbImpl;
+import team4.softhouse.resource.InventoryResource;
+
 //import team4.softhouse.process.NoteProcess;
 //import team4.softhouse.process.NoteProcessDbImpl;
-import team4.softhouse.resource.InventoryResource;
 
 
 
@@ -32,11 +35,12 @@ public class App extends Application<TestConfiguration> {
         // tables
         inventoryDAO.createTable();
 
+
         // processes
-        //NoteProcess noteProcess = new NoteProcessDbImpl(inventoryDAO);
+        InventoryProcess inventoryProcess = new InventoryProcessDbImpl(inventoryDAO);
 
         // resources
-        InventoryResource inventoryResource = new InventoryResource(inventoryDAO);
+        InventoryResource inventoryResource = new InventoryResource(inventoryProcess);
 
         // environment
         environment.jersey().register(inventoryResource);
