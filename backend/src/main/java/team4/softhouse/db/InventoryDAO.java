@@ -33,6 +33,6 @@ public interface InventoryDAO {
     int deleteBy(@Bind("id") int id);
 
     @SqlUpdate("UPDATE `inventory` SET name = :name, category = :category WHERE id = :id")
-    Integer update(@Bind("id") int id ,@BindBean Inventory inventory);
+    Integer update(@BindBean Inventory inventory);
 
 }

@@ -1,8 +1,9 @@
 package team4.softhouse.resource;
 
-import team4.softhouse.db.InventoryDAO;
 import team4.softhouse.db.entity.Inventory;
+import team4.softhouse.process.InventoryProcess;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
@@ -13,16 +14,16 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 //import team4.softhouse.process.NoteProcess;
 
-
+@RolesAllowed("ADMIN")
 @Path("/product")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 
 public class InventoryResource {
-    private InventoryDAO inventoryDAO;
+    private InventoryProcess inventoryProcess;
 
-    public InventoryResource(InventoryDAO inventoryDAO) {
-        this.inventoryDAO = checkNotNull(inventoryDAO);
+    public InventoryResource(InventoryProcess inventoryProcess) {
+        this.inventoryProcess = checkNotNull(inventoryProcess);
     }
 
     @GET
@@ -30,11 +31,10 @@ public class InventoryResource {
         System.out.println(type);
         if (type == null)
         {
-            return this.inventoryDAO.list();
+            return this.inventoryProcess.list();
         }
 
-
-        return this.inventoryDAO.findByType(type);
+        return this.inventoryProcess.findType(type);
     }
 /*
     @GET
@@ -52,24 +52,24 @@ public class InventoryResource {
 */
     @GET
     @Path("/{id}")
-    public Inventory getNote(@PathParam("id") Integer id) {
-        return this.inventoryDAO.findBy(id);
+    public Inventory getNote(@PathParam("id") Integer id) throws javassist.NotFoundException {
+        return this.inventoryProcess.find(id);
     }
 
     @POST
-    public int createNote(@NotNull @Valid Inventory inventory) {
-        return this.inventoryDAO.create(inventory);
+    public Inventory createNote(@NotNull @Valid Inventory inventory) {
+        return this.inventoryProcess.create(inventory);
     }
 
     @PUT
     @Path("/{id}")
-    public int updateNote(@PathParam("id") Integer id, @Valid Inventory inventory) {
-        return this.inventoryDAO.update(id, inventory);
+    public Inventory updateNote(@PathParam("id") Integer id, @Valid Inventory inventory) throws javassist.NotFoundException {
+        return this.inventoryProcess.update(id, inventory);
     }
 
     @DELETE
     @Path("/{id}")
     public void deleteNote(@PathParam("id") Integer id) {
-        this.inventoryDAO.deleteBy(id);
+        this.inventoryProcess.delete(id);
     }
 }

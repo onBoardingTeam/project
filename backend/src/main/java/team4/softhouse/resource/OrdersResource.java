@@ -5,6 +5,7 @@ import com.sun.istack.internal.NotNull;
 import team4.softhouse.db.entity.Orders;
 import team4.softhouse.process.OrdersProcess;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,7 +13,7 @@ import java.util.List;
 
 import static jersey.repackaged.com.google.common.base.Preconditions.checkNotNull;
 
-//@RolesAllowed("ADMIN")
+@RolesAllowed("ADMIN")
 @Path("/orders")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

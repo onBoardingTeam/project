@@ -7,3 +7,24 @@ SELECT * FROM INVENTORY INVENTORY INVENTORY INVENTORY [42000-192]
 2016-11-01 10:51:46 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM INVENTORY INVENTORY INVENTORY[*] INVENTORY"; SQL statement:
 SELECT * FROM INVENTORY INVENTORY INVENTORY INVENTORY [42000-192]
+2016-11-03 17:46:53 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "NAME VARCHAR(12)": "'Dell Inspiron' (13)"; SQL statement:
+/* InventoryDAO.create */ INSERT INTO `inventory` VALUES(?, ?, ?, ?) [22001-192]
+2016-11-03 17:46:56 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "NAME VARCHAR(12)": "'Dell Inspiron' (13)"; SQL statement:
+/* InventoryDAO.create */ INSERT INTO `inventory` VALUES(?, ?, ?, ?) [22001-192]
+2016-11-03 17:47:13 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "NAME VARCHAR(12)": "'Dell Inspiron' (13)"; SQL statement:
+/* InventoryDAO.create */ INSERT INTO `inventory` VALUES(?, ?, ?, ?) [22001-192]
+2016-11-03 17:47:14 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "NAME VARCHAR(12)": "'Dell Inspiron' (13)"; SQL statement:
+/* InventoryDAO.create */ INSERT INTO `inventory` VALUES(?, ?, ?, ?) [22001-192]
+2016-11-03 17:47:15 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "NAME VARCHAR(12)": "'Dell Inspiron' (13)"; SQL statement:
+/* InventoryDAO.create */ INSERT INTO `inventory` VALUES(?, ?, ?, ?) [22001-192]
+2016-11-07 10:59:10 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "NAME VARCHAR(12)": "'shivaTheGodagain' (16)"; SQL statement:
+/* InventoryDAO.update */ UPDATE `inventory` SET name = ?, category = ? WHERE id = ? [22001-192]
+2016-11-07 14:56:52 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+/* LoginDAO.findUserByUsername */ SELECT * FROM user WHERE username= ? AND password = ? [42102-192]
