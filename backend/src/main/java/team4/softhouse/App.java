@@ -16,13 +16,12 @@ import team4.softhouse.auth.LoginAuthenticator;
 import team4.softhouse.auth.LoginAuthorizer;
 import team4.softhouse.db.InventoryDAO;
 import team4.softhouse.db.LoginDAO;
+import team4.softhouse.db.OrdersDAO;
 import team4.softhouse.db.entity.Login;
-import team4.softhouse.process.InventoryProcess;
-import team4.softhouse.process.InventoryProcessDbImpl;
-import team4.softhouse.process.LoginProcess;
-import team4.softhouse.process.LoginProcessDbImpl;
+import team4.softhouse.process.*;
 import team4.softhouse.resource.InventoryResource;
 import team4.softhouse.resource.LoginResource;
+import team4.softhouse.resource.OrdersResource;
 
 //import team4.softhouse.process.NoteProcess;
 //import team4.softhouse.process.NoteProcessDbImpl;
@@ -44,23 +43,28 @@ public class App extends Application<TestConfiguration> {
         // data access objects
         final InventoryDAO inventoryDAO = dbi.onDemand(InventoryDAO.class);
         final LoginDAO loginDAO = dbi.onDemand(LoginDAO.class);
+        final OrdersDAO ordersDAO = dbi.onDemand(OrdersDAO.class);
 
         // tables
         inventoryDAO.createTable();
         loginDAO.createTable();
+        ordersDAO.createTable();
 
 
         // processes
         InventoryProcess inventoryProcess = new InventoryProcessDbImpl(inventoryDAO);
         LoginProcess loginProcess = new LoginProcessDbImpl(loginDAO);
+        OrdersProcess ordersProcess = new OrdersProcessDbImpl(ordersDAO);
 
         // resources
         InventoryResource inventoryResource = new InventoryResource(inventoryProcess);
         LoginResource loginResource = new LoginResource(loginProcess);
+        OrdersResource ordersResource = new OrdersResource(ordersProcess);
 
         // environment
         environment.jersey().register(inventoryResource);
         environment.jersey().register(loginResource);
+        environment.jersey().register(ordersResource);
 
         //Authentication and Authorization
         environment.jersey().register(new AuthDynamicFeature(

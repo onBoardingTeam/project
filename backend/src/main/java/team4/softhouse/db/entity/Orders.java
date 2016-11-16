@@ -1,39 +1,43 @@
 package team4.softhouse.db.entity;
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+public class Orders {
 
-public class Inventory {
     @JsonProperty
     private Integer id;
 
     @JsonProperty
     @NotEmpty
-    @Length(max = 99, message = "must not be longer than 99 characters")
+    private String emp_name;
+
+    @JsonProperty
+    @NotEmpty
+    private String emp_id;
+
+    @JsonProperty
+    @NotEmpty
     private String name;
 
     @JsonProperty
     @NotEmpty
-    @Length(min = 1, message = "must contain atleast 1 characters")
     private String category;
 
     @JsonProperty
     @NotEmpty
     private String specifications;
 
-    @JsonProperty
-    private Integer quantity;
+    public Orders (){}
 
-    public Inventory() {}
-
-    public Inventory(Integer id, String name, String category, String specifications, Integer quantity) {
+    public Orders(Integer id, String emp_name, String emp_id, String name, String category, String specifications){
         this.id = id;
+        this.emp_name = emp_name;
+        this.emp_id = emp_id;
         this.name = name;
         this.category = category;
         this.specifications = specifications;
-        this.quantity = quantity;
     }
 
     public Integer getId() {
@@ -42,6 +46,22 @@ public class Inventory {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getEmp_name() {
+        return emp_name;
+    }
+
+    public void setEmp_name(String emp_name) {
+        this.emp_name = emp_name;
+    }
+
+    public String getEmp_id() {
+        return emp_id;
+    }
+
+    public void setEmp_id(String emp_id) {
+        this.emp_id = emp_id;
     }
 
     public String getName() {
@@ -57,7 +77,7 @@ public class Inventory {
     }
 
     public void setCategory(String category) {
-        this.category =category;
+        this.category = category;
     }
 
     public String getSpecifications() {
@@ -67,12 +87,5 @@ public class Inventory {
     public void setSpecifications(String specifications) {
         this.specifications = specifications;
     }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
 }
+
