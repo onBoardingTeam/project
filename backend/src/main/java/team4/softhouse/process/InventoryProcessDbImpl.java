@@ -30,6 +30,7 @@ public class InventoryProcessDbImpl implements InventoryProcess {
         inventory.setName(updatedInventory.getName());
         inventory.setCategory(updatedInventory.getCategory());
         inventory.setSpecifications(updatedInventory.getSpecifications());
+        inventory.setQuantity(updatedInventory.getQuantity());
 
         this.inventoryDAO.update(inventory);
 

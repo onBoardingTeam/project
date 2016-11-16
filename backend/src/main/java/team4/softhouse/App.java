@@ -16,22 +16,12 @@ import team4.softhouse.auth.LoginAuthenticator;
 import team4.softhouse.auth.LoginAuthorizer;
 import team4.softhouse.db.InventoryDAO;
 import team4.softhouse.db.LoginDAO;
-<<<<<<< HEAD
 import team4.softhouse.db.OrdersDAO;
 import team4.softhouse.db.entity.Login;
 import team4.softhouse.process.*;
 import team4.softhouse.resource.InventoryResource;
 import team4.softhouse.resource.LoginResource;
 import team4.softhouse.resource.OrdersResource;
-=======
-import team4.softhouse.db.entity.Login;
-import team4.softhouse.process.InventoryProcess;
-import team4.softhouse.process.InventoryProcessDbImpl;
-import team4.softhouse.process.LoginProcess;
-import team4.softhouse.process.LoginProcessDbImpl;
-import team4.softhouse.resource.InventoryResource;
-import team4.softhouse.resource.LoginResource;
->>>>>>> master
 
 //import team4.softhouse.process.NoteProcess;
 //import team4.softhouse.process.NoteProcessDbImpl;
@@ -53,43 +43,28 @@ public class App extends Application<TestConfiguration> {
         // data access objects
         final InventoryDAO inventoryDAO = dbi.onDemand(InventoryDAO.class);
         final LoginDAO loginDAO = dbi.onDemand(LoginDAO.class);
-<<<<<<< HEAD
         final OrdersDAO ordersDAO = dbi.onDemand(OrdersDAO.class);
-=======
->>>>>>> master
 
         // tables
         inventoryDAO.createTable();
         loginDAO.createTable();
-<<<<<<< HEAD
         ordersDAO.createTable();
-=======
->>>>>>> master
 
 
         // processes
         InventoryProcess inventoryProcess = new InventoryProcessDbImpl(inventoryDAO);
         LoginProcess loginProcess = new LoginProcessDbImpl(loginDAO);
-<<<<<<< HEAD
         OrdersProcess ordersProcess = new OrdersProcessDbImpl(ordersDAO);
-=======
->>>>>>> master
 
         // resources
         InventoryResource inventoryResource = new InventoryResource(inventoryProcess);
         LoginResource loginResource = new LoginResource(loginProcess);
-<<<<<<< HEAD
         OrdersResource ordersResource = new OrdersResource(ordersProcess);
-=======
->>>>>>> master
 
         // environment
         environment.jersey().register(inventoryResource);
         environment.jersey().register(loginResource);
-<<<<<<< HEAD
         environment.jersey().register(ordersResource);
-=======
->>>>>>> master
 
         //Authentication and Authorization
         environment.jersey().register(new AuthDynamicFeature(

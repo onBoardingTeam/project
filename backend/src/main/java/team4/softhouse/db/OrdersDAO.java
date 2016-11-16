@@ -18,6 +18,9 @@ public interface OrdersDAO {
     @GetGeneratedKeys
     int create(@BindBean Orders orders);
 
+    @SqlUpdate("INSERT INTO `orders` VALUES(:id, :emp_name, :emp_id, :name, :category, :specifications)")
+    public void insertOrders(@BindBean Orders orders);
+
     @SqlQuery("SELECT * FROM `orders`")
     List<Orders> list();
 

@@ -28,3 +28,15 @@ org.h2.jdbc.JdbcSQLException: Value too long for column "NAME VARCHAR(12)": "'sh
 2016-11-07 14:56:52 jdbc[12]: exception
 org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
 /* LoginDAO.findUserByUsername */ SELECT * FROM user WHERE username= ? AND password = ? [42102-192]
+2016-11-15 12:03:02 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (INVENTORY: QUANTITY INT)"; SQL statement:
+INSERT INTO "PUBLIC"."INVENTORY"("ID","NAME","CATEGORY","SPECIFICATIONS","QUANTITY")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [22018-192]
+2016-11-15 12:03:02 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (INVENTORY: QUANTITY INT)"; SQL statement:
+INSERT INTO "PUBLIC"."INVENTORY"("ID","NAME","CATEGORY","SPECIFICATIONS","QUANTITY")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [22018-192]
+2016-11-15 12:03:13 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (INVENTORY: QUANTITY INT)"; SQL statement:
+INSERT INTO "PUBLIC"."INVENTORY"("ID","NAME","CATEGORY","SPECIFICATIONS","QUANTITY")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [22018-192]
+2016-11-15 12:03:13 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (INVENTORY: QUANTITY INT)"; SQL statement:
+INSERT INTO "PUBLIC"."INVENTORY"("ID","NAME","CATEGORY","SPECIFICATIONS","QUANTITY")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [22018-192]

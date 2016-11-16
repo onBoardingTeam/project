@@ -4,18 +4,22 @@ import org.skife.jdbi.v2.sqlobject.*;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 import team4.softhouse.db.entity.Inventory;
+import team4.softhouse.db.entity.Orders;
 
 import java.util.List;
 
 @RegisterMapperFactory(BeanMapperFactory.class)
 
 public interface InventoryDAO {
-    @SqlUpdate("CREATE TABLE IF NOT EXISTS inventory(id int auto_increment primary key, name varchar(12), category varchar(255), specifications varchar(500))")
+    @SqlUpdate("CREATE TABLE IF NOT EXISTS inventory(id int auto_increment primary key, name varchar(12), category varchar(255), specifications varchar(500), quantity int(100))")
     void createTable();
 
     @SqlUpdate("INSERT INTO `inventory` VALUES(:id, :name, :category, :specifications)")
     @GetGeneratedKeys
     int create(@BindBean Inventory inventory);
+
+    @SqlUpdate("UPDATE inventory SET quantity=quantity-1 WHERE category = :type")
+    public void updateInventory(@BindBean Orders orders);
 
     @SqlQuery("SELECT * FROM `inventory`")
     List<Inventory> list();
