@@ -18,7 +18,13 @@ public class InventoryProcessDbImpl implements InventoryProcess {
     public List<Inventory> list() { return this.inventoryDAO.list(); }
 
     @Override
+    public List<Inventory> listCategory() { return this.inventoryDAO.listCategory(); }
+
+    @Override
     public List<Inventory> findType(String type) {return this.inventoryDAO.findByType(type);}
+
+    @Override
+    public void updateQuantity(Integer productid) {this.inventoryDAO.updateQuantity(productid);}
 
     @Override
     public Inventory create(Inventory inventory) {return this.inventoryDAO.findBy(this.inventoryDAO.create(inventory)); }

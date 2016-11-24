@@ -59,7 +59,7 @@ public class App extends Application<TestConfiguration> {
         // resources
         InventoryResource inventoryResource = new InventoryResource(inventoryProcess);
         LoginResource loginResource = new LoginResource(loginProcess);
-        OrdersResource ordersResource = new OrdersResource(ordersProcess);
+        OrdersResource ordersResource = new OrdersResource(ordersProcess, inventoryProcess);
 
         // environment
         environment.jersey().register(inventoryResource);

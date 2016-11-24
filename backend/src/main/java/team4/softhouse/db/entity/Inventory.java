@@ -26,6 +26,7 @@ public class Inventory {
     @JsonProperty
     private Integer quantity;
 
+
     public Inventory() {}
 
     public Inventory(Integer id, String name, String category, String specifications, Integer quantity) {
@@ -34,6 +35,10 @@ public class Inventory {
         this.category = category;
         this.specifications = specifications;
         this.quantity = quantity;
+    }
+
+    public Inventory(String category) {
+        this.category = category;
     }
 
     public Integer getId() {

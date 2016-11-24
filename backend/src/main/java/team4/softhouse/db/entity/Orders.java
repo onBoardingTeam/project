@@ -5,21 +5,29 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class Orders {
-
-    @JsonProperty
-    private Integer id;
-
     @JsonProperty
     @NotEmpty
-    private String emp_name;
-
-    @JsonProperty
-    @NotEmpty
-    private String emp_id;
+    private Integer orderid;
 
     @JsonProperty
     @NotEmpty
     private String name;
+
+    @JsonProperty
+    @NotEmpty
+    private Integer productid;
+
+    @JsonProperty
+    @NotEmpty
+    private Integer userid;
+
+    @JsonProperty
+    @NotEmpty
+    private Integer status;
+
+    @JsonProperty
+    @NotEmpty
+    private String username;
 
     @JsonProperty
     @NotEmpty
@@ -31,37 +39,57 @@ public class Orders {
 
     public Orders (){}
 
-    public Orders(Integer id, String emp_name, String emp_id, String name, String category, String specifications){
-        this.id = id;
-        this.emp_name = emp_name;
-        this.emp_id = emp_id;
+    public Orders(Integer orderid, String name, Integer productid, Integer userid, Integer status, String username, String category, String specifications) {
+        this.orderid = orderid;
+        this.username=username;
         this.name = name;
+        this.productid = productid;
+        this.userid = userid;
         this.category = category;
         this.specifications = specifications;
+        this.status = status;
     }
 
-    public Integer getId() {
-        return id;
+
+
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public String getEmp_name() {
-        return emp_name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmp_name(String emp_name) {
-        this.emp_name = emp_name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getEmp_id() {
-        return emp_id;
+    public Integer getUserid() {
+        return userid;
     }
 
-    public void setEmp_id(String emp_id) {
-        this.emp_id = emp_id;
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
+
+    public Integer getProductid() {
+        return productid;
+    }
+
+    public void setProductid(Integer productid) {
+        this.productid = productid;
+    }
+
+    public Integer getOrderid() {
+        return orderid;
+    }
+
+    public void setOrderid(Integer orderid) {
+        this.orderid = orderid;
     }
 
     public String getName() {

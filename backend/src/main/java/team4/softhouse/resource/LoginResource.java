@@ -4,6 +4,7 @@ package team4.softhouse.resource;
 import team4.softhouse.db.entity.Login;
 import team4.softhouse.process.LoginProcess;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
